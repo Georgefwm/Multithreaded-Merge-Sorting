@@ -11,18 +11,15 @@ public class MParallelSorter2 implements Sorter {
 
 	
 	/**
-	 * The benefit of this algorithm is that it is takes advantage of multiple threads. When used with a task like 
-	 * sorting, it becomes very apparent that multithreading is one of the best ways to speed up the execution. Multithreading 
-	 * is better for sorting large lists, especially if you have a low time requirement to meet, in some cases if 
-	 * the algorithm is too slow it's not a viable option for the project. Its important to note that multithreading is 
-	 * convenient for the mergesort algorithm as no data is simultaneously accessed by different threads, this seriously 
-	 * reduces the complexity that would probably occur if n threads were trying to access and modify the same variables 
-	 * at the same time. 
+	 * The benefit of this algorithm is that it is takes advantage of multiple threads. Implementation with CompletableFutures is
+	 * slightly different then Futures. CompletableFutures.supplyAsync() does all the work, whereas with Futures you have to set up
+	 * the thread pool yourself, and choose the type that is best suited for the nature of the tasks you are getting it to do.
+	 * There are some differences between the .cancel() methods, I have not used them so there is not much difference in the code
+	 * except the syntax.
 	 * <p>
 	 * 
-	 * I learned how to implement Futures to delegate a task to a 'worker' in the thread pool. When implementing multithreading I
-	 * realized that it's important to understand how important splitting tasks in the right places is; When done wrong, there isnt
-	 * much performance increase.
+	 * I learned how to implement CompletableFutures to delegate a task to a 'worker'. Again, I was reminded of the importance 
+	 * of ordering when delegating tasks to new threads.
 	 * <p>
 	 * 
 	 * @param list to sort.
@@ -35,7 +32,7 @@ public class MParallelSorter2 implements Sorter {
 
 
 	/**
-	 * Gets recursively called to split up the original list into smaller pieces.
+	 * Gets recursively called to split up the original list into smaller pieces and delegates tasks to new threads if needed.
 	 * 
 	 * @param list to sort.
 	 * @return Sorted list. In the last case, the final sorted list.

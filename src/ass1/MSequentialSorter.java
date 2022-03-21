@@ -51,8 +51,7 @@ public class MSequentialSorter implements Sorter {
 
 
 	/**
-	 * Takes two lists and sorts them dependent on the Comparator used, then combines them
-	 * into a sngle list.
+	 * Takes two lists and both merges and sorts them. Sorted by the objects comparator.
 	 * 
 	 * @param first list that extends Comparable
 	 * @param second list that extends Comparable

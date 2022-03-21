@@ -36,7 +36,7 @@ public class MParallelSorter1 implements Sorter {
 
 
 	/**
-	 * Gets recursively called to split up the original list into smaller pieces and delegates tasks to new threads if needed
+	 * Gets recursively called to split up the original list into smaller pieces and delegates tasks to new threads if needed.
 	 * 
 	 * @param list to be sorted. 
 	 * @return Sorted list. In the last case, the final sorted list.

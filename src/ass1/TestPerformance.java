@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 public class TestPerformance {
 	
 	/**
+	 * Does some warmup runs then records the time taken when the JIT compiler is operating properly.
+	 * We use Runnable here so we can use utilise threads without having write a new class that extends Thread.
 	 * 
-	 * @param r 
+	 * @param r Runnable task
 	 * @param warmUp Number of sorts to do before recording time results.
 	 * @param runs Number of sort calls to do while recording time taken.
 	 * @return Time taken to finish execution.
@@ -36,8 +38,7 @@ public class TestPerformance {
 	}
 	
 	/**
-	 * Used to call every variation of the sorting methods using the same dataset for acurate comparrison.
-	 * 
+	 * Used to call every variation of the sorting methods, uses the same dataset for acurate comparrison.
 	 * 
 	 * @param dataset A 2D array which represents a series of lists for testing on
 	 */
