@@ -4,7 +4,13 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * @author georgemclachlan
+ *
+ * I know this is basic and not really different from the other test cases, but whatever object implements Comparable
+ * will just act the same in theory...
+ *
+ */
 public class TestDouble {
 
 	public static final Double[][] dataset={
