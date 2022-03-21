@@ -15,15 +15,14 @@ public class MSequentialSorter implements Sorter {
 	 * it is faster to sequentially sort it rather then setting up threads and a thread pool because 
 	 * there is overhead when using multiple threads. When used in conjunction with multithreaded tasks,
 	 * having a sequential part is very powerful.
-	 * 
 	 * <p>
+	 * 
 	 * Learned how to implement merge sort using generics. While doing this I learned how powerful generics
 	 * are when used properly.
-	 * 
 	 * <p>
 	 * 
-	 * @param List<T> to be sorted
-	 * @return The Sorted List<T>
+	 * @param list to sort.
+	 * @return The sorted list.
 	 */
 	@Override
 	public <T extends Comparable<? super T>> List<T> sort(List<T> list){
@@ -34,8 +33,7 @@ public class MSequentialSorter implements Sorter {
 	/**
 	 * Gets recursively called to split up the original list into smaller pieces.
 	 * 
-	 * @param List to sort. 
-	 * 
+	 * @param list to sort. 
 	 * @return The the sorted list. In the last case; The final sorted list.
 	 */
 	public static <T extends Comparable<? super T>> List<T> mergeSort(List<T> list){
@@ -56,9 +54,9 @@ public class MSequentialSorter implements Sorter {
 	 * Takes two lists and sorts them dependent on the Comparator used, then combines them
 	 * into a sngle list.
 	 * 
-	 * @param Two List<T> that extend Comparable
-	 * 
-	 * @return Sorted and merged list<T> of the two given lists
+	 * @param first list that extends Comparable
+	 * @param second list that extends Comparable
+	 * @return Merged and sorted list
 	 */
 	public static <T extends Comparable<? super T>> List<T> merge(List<T> first, List<T> second){
 		ArrayList<T> merged = new ArrayList<T>();

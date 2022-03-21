@@ -31,7 +31,7 @@ public class MParallelSorter3 implements Sorter {
 			int middle = this.job.size()/2;
 			
 			// split list in half
-			// only allocate a new thread for one side so that the current thread can keep working
+			// only allocate a new thread for one side so the current thread can keep working
 			ForkingMergeSort<T> firstHalf = new ForkingMergeSort<T>(this.job.subList(0, middle));
 			firstHalf.fork();
 			
