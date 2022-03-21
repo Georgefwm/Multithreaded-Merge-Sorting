@@ -41,17 +41,17 @@ public class MParallelSorter1 implements Sorter {
 	 * @return Sorted list. In the last case, the final sorted list.
 	 */
 	private <T extends Comparable<? super T>> List<T> MergeSort(List<T> list){
+		
+		// efficient to just complete in this thread if list is this small
 		if(list.size() < 20) return MSequentialSorter.mergeSort(list);
 
 		int middle = list.size()/2;
 
 		// split list in half
-		// important: only future for one half so that tasks dont get submitted at rate of n^2, just 2n (showing my cpu mercy)
-		// also more efficient as it stops what would be the 'root' thread from doing nothing while it waits
+		// only allocate a new thread for one side so that the current thread can keep working
 		Future<List<T>> firstHalfFuture = threadPool.submit( () -> MergeSort(list.subList(0, middle)) );
 		List<T> secondHalf = MergeSort(list.subList(middle, list.size()));
 
-		// not much point in sequentially merging from here as task has been split between threads already
 		return MSequentialSorter.merge(get(firstHalfFuture), secondHalf);
 	}
 

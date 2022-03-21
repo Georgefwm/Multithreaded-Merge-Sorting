@@ -24,12 +24,17 @@ public class MParallelSorter3 implements Sorter {
 		}
 
 		protected List<T> compute() {
+			
+			// efficient to just complete in this thread if list is this small
 			if(this.job.size() < 20) return MSequentialSorter.mergeSort(job);
 			
 			int middle = this.job.size()/2;
 			
+			// split list in half
+			// only allocate a new thread for one side so that the current thread can keep working
 			ForkingMergeSort<T> firstHalf = new ForkingMergeSort<T>(this.job.subList(0, middle));
 			firstHalf.fork();
+			
 			ForkingMergeSort<T> secondHalf = new ForkingMergeSort<T>(this.job.subList(middle, this.job.size()));
 			List<T> secondHalfSorted = secondHalf.compute();
 			
