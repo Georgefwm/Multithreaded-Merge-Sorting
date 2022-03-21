@@ -7,9 +7,9 @@ import java.util.concurrent.*;
  * @author George McLachlan
  *
  */
-public class MParallelSorter2 implements Sorter {
+public class MParallelSorter2 implements Sorter{
 
-	
+
 	/**
 	 * The benefit of this algorithm is that it is takes advantage of multiple threads. Implementation with CompletableFutures is
 	 * slightly different then Futures. CompletableFutures.supplyAsync() does all the work, whereas with Futures you have to set up
@@ -38,7 +38,7 @@ public class MParallelSorter2 implements Sorter {
 	 * @return Sorted list. In the last case, the final sorted list.
 	 */
 	private <T extends Comparable<? super T>> List<T> mergeSort(List<T> list){
-		
+
 		// efficient to just complete in this thread if list is this small
 		if(list.size() < 20) return MSequentialSorter.mergeSort(list);
 

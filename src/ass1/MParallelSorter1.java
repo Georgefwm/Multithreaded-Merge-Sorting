@@ -7,10 +7,10 @@ import java.util.concurrent.*;
  * @author George McLachlan
  *
  */
-public class MParallelSorter1 implements Sorter {
+public class MParallelSorter1 implements Sorter{
 	private ExecutorService threadPool = Executors.newWorkStealingPool();
 
-	
+
 	/**
 	 * The benefit of this algorithm is that it is takes advantage of multiple threads. When used with a task like 
 	 * sorting, it becomes very apparent that multithreading is one of the best ways to speed up the execution. Multithreading 
@@ -42,7 +42,7 @@ public class MParallelSorter1 implements Sorter {
 	 * @return Sorted list. In the last case, the final sorted list.
 	 */
 	private <T extends Comparable<? super T>> List<T> mergeSort(List<T> list){
-		
+
 		// efficient to just complete in this thread if list is this small
 		if(list.size() < 20) return MSequentialSorter.mergeSort(list);
 
@@ -65,10 +65,10 @@ public class MParallelSorter1 implements Sorter {
 	 * @param future Given task
 	 * @return Result of task
 	 */
-	private <T> T get(Future<T> future) {
-		try {
+	private <T> T get(Future<T> future){
+		try{
 			return future.get();
-		} catch (InterruptedException | ExecutionException e) {
+		}catch(InterruptedException | ExecutionException e){
 			e.printStackTrace();
 			throw new Error("Unexpected Checked Excepton", e.getCause());
 		}

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 public class TestPerformance {
-	
+
 	/**
 	 * Does some warmup runs then records the time taken when the JIT compiler is operating properly.
 	 * We use Runnable here so we can use utilise threads without having write a new class that extends Thread.
@@ -22,7 +22,7 @@ public class TestPerformance {
 		long time1=System.currentTimeMillis();
 		return time1-time0;
 	}
-	
+
 	/**
 	 * Handles the testing of a single sorting variation. Prints the time taken by the parsed Sorter.
 	 * 
@@ -36,7 +36,7 @@ public class TestPerformance {
 		},20000,200);//realistically 20.000 to make the JIT do his job..
 		System.out.println(name+" sort takes "+time/1000d+" seconds");
 	}
-	
+
 	/**
 	 * Used to call every variation of the sorting methods, uses the same dataset for acurate comparrison.
 	 * 
@@ -60,7 +60,7 @@ public class TestPerformance {
 		System.out.println("On the data type BigInteger");
 		msgAll(TestBigInteger.dataset);
 	}
-	
+
 	/**
 	 * Tests with the Float datatype
 	 */
@@ -69,7 +69,7 @@ public class TestPerformance {
 		System.out.println("On the data type Float");
 		msgAll(TestFloat.dataset);
 	}
-	
+
 	/**
 	 * Tests with the Point datatype
 	 */
@@ -78,7 +78,7 @@ public class TestPerformance {
 		System.out.println("On the data type Point");
 		msgAll(TestPoint.dataset);
 	}
-	
+
 	/**
 	 * Tests with the Double datatype
 	 */
@@ -87,8 +87,8 @@ public class TestPerformance {
 		System.out.println("On the data type Double");
 		msgAll(TestDouble.dataset);
 	}
-	
-	
+
+
 }
 /*
 With the model solutions, on a lab machine (2019) we may get those results:

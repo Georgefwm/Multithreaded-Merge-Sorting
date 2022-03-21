@@ -31,13 +31,13 @@ public class TestDouble {
 		for(int i=0;i<size;i++){result[i]=r.nextDouble();}
 		return result;
 	}
-	
+
 	static private Double[] manyReverse(int size) {
 		Double[] result=new Double[size];
 		for(int i=0;i<size;i++){result[i]=(size-i)+0.42;}
 		return result;
 	}
-	
+
 	static private Double[] manyOrdered(int size) {
 		Double[] result=new Double[size];
 		for(int i=0;i<size;i++){result[i]=i+0.42;}
@@ -55,19 +55,19 @@ public class TestDouble {
 		Sorter s=new MSequentialSorter();
 		for(Double[]l:dataset){TestHelper.testData(l,s);}
 	}
-	
+
 	@Test
 	public void testMParallelSorter1() {
 		Sorter s=new MParallelSorter1();
 		for(Double[]l:dataset){TestHelper.testData(l,s);}
 	}
-	
+
 	@Test
 	public void testMParallelSorter2() {
 		Sorter s=new MParallelSorter2();
 		for(Double[]l:dataset){TestHelper.testData(l,s);}
 	}
-	
+
 	@Test
 	public void testMParallelSorter3() {
 		Sorter s=new MParallelSorter3();
