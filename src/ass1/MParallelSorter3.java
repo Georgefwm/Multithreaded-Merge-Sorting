@@ -40,14 +40,15 @@ public class MParallelSorter3 implements Sorter{
 	 * @param list to sort.
 	 */
 	@SuppressWarnings("serial")
-	class ForkingMergeSort<T extends Comparable<? super T>> extends RecursiveTask<List<T>> {
+	class ForkingMergeSort<T extends Comparable<? super T>> extends RecursiveTask<List<T>>{
 		List<T> job;
 
 		public ForkingMergeSort(List<T> list){
 			this.job = list;	
 		}
 
-		protected List<T> compute() {
+		// do task
+		protected List<T> compute(){
 
 			// efficient to just complete in this thread if list is this small
 			if(this.job.size() < 20) return MSequentialSorter.mergeSort(job);

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class MSequentialSorter implements Sorter {
 
-
+	
 	/**
 	 * The benefit of this algorithm is that it is sequential. When the list supplied is small enough
 	 * it is faster to sequentially sort it rather then setting up threads and a thread pool because 
