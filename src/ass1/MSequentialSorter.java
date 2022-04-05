@@ -11,16 +11,6 @@ public class MSequentialSorter implements Sorter {
 
 	
 	/**
-	 * The benefit of this algorithm is that it is sequential. When the list supplied is small enough
-	 * it is faster to sequentially sort it rather then setting up threads and a thread pool because 
-	 * there is overhead when using multiple threads. When used in conjunction with multithreaded tasks,
-	 * having a sequential part is very powerful.
-	 * <p>
-	 * 
-	 * Learned how to implement merge sort using generics. While doing this I learned how powerful generics
-	 * are when used properly.
-	 * <p>
-	 * 
 	 * @param list to sort.
 	 * @return The sorted list.
 	 */
