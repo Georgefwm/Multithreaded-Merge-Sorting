@@ -12,17 +12,6 @@ public class MParallelSorter3 implements Sorter{
 
 
 	/**
-	 * The benefit of this algorithm is that it is takes advantage of multiple threads. Implementation is easy here as 
-	 * ForkJoin has been commonly used for a long time. It is well suited for working with recursive tasks such
-	 * as merge sort. A key difference here is that there is no need to use lambdas to give threads tasks to do, at least on 
-	 * the surface; Instead you tell java when to fork with .fork()
-	 * <p>
-	 * 
-	 * I learned how to implement ForkJoin to get a new thread to complete a task. Again, I was reminded of the importance 
-	 * of ordering when delegating tasks to new threads, especially so here because you have to specify when the fork will happen 
-	 * seperately from giving the ForkingMergeSort class the list we want to sort.
-	 * <p>
-	 * 
 	 * @param list to sort.
 	 * @return The sorted list.
 	 */
